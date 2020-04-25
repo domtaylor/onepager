@@ -4,8 +4,5 @@
         "start": "npm run open",
         "open": "concurrently \"http-server -a localhost -p 1234\" \"open http://localhost:1234/build\""
     },
-    "devDependencies": {
-        "concurrently": "^5.2.0",
-        "http-server": "^0.12.1"
-    }
+    "devDependencies": {}
 }
