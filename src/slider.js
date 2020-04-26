@@ -58,11 +58,37 @@ function showSlides(n){
   dots[slideIndex-1].className += " active";
 }
 
-pause = () => {
+
+var playing = true;
+var pauseButton = document.getElementById('pause');
+
+function pauseSlideshow(){
+	pauseButton.innerHTML = 'Play';
+	playing = false;
+  clearInterval(myTimer);
+}
+
+function playSlideshow(){
+	pauseButton.innerHTML = 'Pause';
+	playing = true;
+  clearInterval(myTimer);
+  myTimer = setInterval(function(){plusSlides(slideIndex)}, 4000);
+}
+
+pauseButton.onclick = function(){
+	if(playing){ pauseSlideshow(); }
+	else{ playSlideshow(); }
+};
+
+ pause = () => {
+  pauseButton.innerHTML = 'Pause';
+  playing = true;
   clearInterval(myTimer);
 }
 
 resume = () =>{
+  pauseButton.innerHTML = 'Play';
+  playing = true;
   clearInterval(myTimer);
   myTimer = setInterval(function(){plusSlides(slideIndex)}, 4000);
 }
